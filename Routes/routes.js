@@ -10,13 +10,13 @@ const getRootHandler = (req, res, next) => {
 
 // Get Comments route
 const getCommentsHandler = (req, res) => {
-    res.send('Get Comments route')
+    res.send('Get Comments route');
 }
 
 // Get Specific Comment 
 const getCommentHandler = (req, res) => {
     console.log(req.params);
-    res.send('Get comment route');
+    res.send(`Get comment route. CommentID ${req.params.commentID}`);
 };
 
 // Post comments route
@@ -25,9 +25,16 @@ const postCommentsHandler = (req, res) => {
 }
 
 app.get('/', getRootHandler);
-app.get('/comments', getCommentsHandler);
-app.post('/comments', postCommentsHandler);
+
+// Route chaining
+app.route('/comments')
+                      .get(getCommentsHandler)
+                      .post(postCommentsHandler)
+
+//app.get('/comments', getCommentsHandler);
+//app.post('/comments', postCommentsHandler);
 app.get('/comments/:commentID', getCommentHandler);
+
 
 app.listen(PORT, () => {
     console.log(`App is listening on port ${PORT}`);
