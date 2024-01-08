@@ -13,14 +13,21 @@ const getCommentsHandler = (req, res) => {
     res.send('Get Comments route')
 }
 
+// Get Specific Comment 
+const getCommentHandler = (req, res) => {
+    console.log(req.params);
+    res.send('Get comment route');
+};
+
 // Post comments route
 const postCommentsHandler = (req, res) => {
-    res.send('Post comments route')
+    res.send('Post comments route');
 }
 
 app.get('/', getRootHandler);
 app.get('/comments', getCommentsHandler);
-app.post('/comments', postCommentsHandler)
+app.post('/comments', postCommentsHandler);
+app.get('/comments/:commentID', getCommentHandler);
 
 app.listen(PORT, () => {
     console.log(`App is listening on port ${PORT}`);
