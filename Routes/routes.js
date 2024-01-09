@@ -14,7 +14,7 @@ const getCommentsHandler = (req, res) => {
 }
 
 // Get certain Comment 
-const getCommentHandler = (req, res) => {
+const getSingleCommentHandler = (req, res) => {
     console.log(req.params);
     res.send(`Get comment route. CommentID ${req.params.commentID}`);
 };
@@ -22,6 +22,26 @@ const getCommentHandler = (req, res) => {
 // Post comments route
 const postCommentsHandler = (req, res) => {
     res.send('Post comments route');
+}
+
+// Delete ceetain comment
+const deleteSingleCommentHandler = (req, res) => {
+    res.send(`Delete comment route. CommentID ${req.params.commentID}`);
+}
+
+// Get All Users
+const getUsersHandler = (req, res) => {
+    res.send(`Delete comment route. CommentID ${req.params.commentID}`);
+}
+
+// Post new User
+const postUsersHandler = (req, res) => {
+    res.send(`Delete comment route. CommentID ${req.params.commentID}`);
+}
+
+// Get Single User
+const getSingleUserHandler = (req, res) => {
+    res.send(`Delete comment route. CommentID ${req.params.commentID}`);
 }
 
 app.get('/', getRootHandler);
@@ -33,10 +53,10 @@ app.get('/comments', getCommentsHandler);
 app.post('/comments', postCommentsHandler);
 
 // Get the certain Comment
-app.get('/comments/:commentID', getCommentHandler);
+app.get('/comments/:commentID', getSingleCommentHandler);
 
 // Delete the certain Comment
-app.delete('/comments/:commentID', deleteCommentHandler);
+app.delete('/comments/:commentID', deleteSingleCommentHandler);
 
 // Get all users
 app.get('/users', getUsersHandler);
@@ -45,7 +65,7 @@ app.get('/users', getUsersHandler);
 app.post('/users', postUsersHandler);
 
 // Get the certain user
-app.get('/users:/userID', postUsersHandler);
+app.get('/users/:userID', getSingleUserHandler);
 
 
 app.listen(PORT, () => {
