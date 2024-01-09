@@ -31,32 +31,21 @@ const deleteSingleCommentHandler = (req, res) => {
 
 // Get All Users
 const getUsersHandler = (req, res) => {
-    res.send(`Delete comment route. CommentID ${req.params.commentID}`);
+    res.send('Get users route');
 }
 
 // Post new User
 const postUsersHandler = (req, res) => {
-    res.send(`Delete comment route. CommentID ${req.params.commentID}`);
+    res.send('Post users route');
 }
 
 // Get Single User
 const getSingleUserHandler = (req, res) => {
-    res.send(`Delete comment route. CommentID ${req.params.commentID}`);
+    res.send(`Get users route. UserID ${req.params.commentID}`);
 }
 
 app.get('/', getRootHandler);
 
-// Get All Users Comments
-app.get('/comments', getCommentsHandler);
-
-// Post comments
-app.post('/comments', postCommentsHandler);
-
-// Get the certain Comment
-app.get('/comments/:commentID', getSingleCommentHandler);
-
-// Delete the certain Comment
-app.delete('/comments/:commentID', deleteSingleCommentHandler);
 
 // Get all users
 app.get('/users', getUsersHandler);
